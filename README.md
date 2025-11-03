@@ -28,7 +28,7 @@ Este projeto foi desenvolvido como parte do **Desafio Halloween** do programa **
 👉 [https://desafio-halloween-techgirls.vercel.app](https://desafio-halloween.vercel.app/)
 
 <p align="center">
-  <img src="https://media.giphy.com/media/XXXXXXXXX/giphy.gif" width="400" alt="Cute pumpkin gif">
+  <img src="https://media.tenor.com/nAotzXxbv-4AAAAi/pumpkin-cute.gif" width="350" alt="Abóbora fofa animada">
 </p>
 
 ---
@@ -86,7 +86,7 @@ Desafio_Hallowen/
 ## 💀 Layout e Tema
 
 <p align="center">
-  <img src="https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif" width="400" alt="Wide Halloween animation">
+  <img src="https://media.tenor.com/qN7d4W7o0IYAAAAi/happy-halloween-cute.gif" width="400" alt="Halloween fofo animado">
 </p>
 
 🎨 Cores inspiradas no **Halloween clássico**:
@@ -114,7 +114,7 @@ Durante o desenvolvimento, foram praticados conceitos como:
 📚 Projeto criado para o desafio **TechGirls - Vai na Web**
 
 <p align="center">
-  <img src="https://media.giphy.com/media/xT8qBepJQzUjRqY6fK/giphy.gif" width="100" alt="bat flying">
+  <img src="https://media.tenor.com/jd7M2Xq2vKIAAAAi/pumpkin-halloween.gif" width="400" alt="Abóboras animadas dançando">
 </p>
 
 ---
