@@ -25,10 +25,10 @@ Este projeto foi desenvolvido como parte do **Desafio Halloween** do programa **
 ## 🧙‍♀️ Demonstração
 
 🔗 **Acesse o projeto online:**  
-👉 [https://desafio-halloween-techgirls.vercel.app](https://desafio-halloween-techgirls.vercel.app)
+👉 [https://desafio-halloween-techgirls.vercel.app](https://desafio-halloween.vercel.app/)
 
 <p align="center">
-  <img src="https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif" width="400" alt="Halloween Animation">
+  <img src="https://media.giphy.com/media/XXXXXXXXX/giphy.gif" width="400" alt="Cute pumpkin gif">
 </p>
 
 ---
@@ -86,7 +86,7 @@ Desafio_Hallowen/
 ## 💀 Layout e Tema
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26FmQ6EOvLxp6cWy0/giphy.gif" width="400" alt="Halloween spooky gif">
+  <img src="https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif" width="400" alt="Wide Halloween animation">
 </p>
 
 🎨 Cores inspiradas no **Halloween clássico**:
