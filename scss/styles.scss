@@ -1,0 +1,973 @@
+// Reset padrão para remover margens e paddings do navegador
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Variáveis CSS para cores e valores reutilizáveis do tema
+:root {
+  --bg-dark: #1a0f2e;
+  --bg-purple: #2d1b47;
+  --bg-lighter: #3d2557;
+  --orange: #ff6b35;
+  --orange-hover: #ff8352;
+  --yellow: #ffc107;
+  --text-light: #e8e8e8;
+  --text-muted: #b8b8b8;
+  --card-bg: rgba(45, 27, 71, 0.6);
+  --border-color: rgba(255, 107, 53, 0.3);
+}
+
+// Estilos base do body
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden; // Previne scroll horizontal
+  line-height: 1.6;
+}
+
+// Ícones PNG dos botões principais
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0; // Impede que o ícone encolha dentro do flexbox
+  object-fit: contain; // Mantém proporções da imagem
+  image-rendering: -webkit-optimize-contrast; // Melhora qualidade em telas retina
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+// Sombra específica para botão primário
+.btn-primary .btn-icon {
+  filter: drop-shadow(0 3px 8px rgba(45, 27, 71, 0.5));
+}
+
+// Sombra específica para botão secundário
+.btn-secondary .btn-icon {
+  filter: drop-shadow(0 4px 10px rgba(255, 107, 53, 0.8));
+}
+
+// Efeito de brilho no hover dos botões
+.btn:hover .btn-icon {
+  filter: brightness(1.2) drop-shadow(0 6px 12px rgba(255, 107, 53, 0.9));
+}
+
+// Ícones do formulário
+.form-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.7));
+  transition: all 0.3s ease;
+}
+
+// Animação interativa nos labels do formulário
+.form-label:hover .form-icon {
+  transform: scale(1.15) rotate(5deg); // Aumenta e rotaciona levemente
+  filter: brightness(1.2) drop-shadow(0 6px 16px rgba(255, 107, 53, 0.9));
+}
+
+// Container dos ícones da seção de detalhes
+.detail-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 8px 24px rgba(255, 107, 53, 0.6));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); // Transição suave customizada
+}
+
+// Imagem dentro do container de ícone
+.detail-icon-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+// Efeito ao passar mouse nos cards de detalhes
+.detail-card:hover .detail-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(1.2) drop-shadow(0 12px 32px rgba(255, 107, 53, 0.9));
+}
+
+// Ícone do troféu no banner de concurso
+.trophy-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 14px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 10px 24px rgba(255, 193, 7, 0.95));
+  animation: trophyFloat 2.5s ease-in-out infinite; // Animação flutuante contínua
+}
+
+// Ícones do footer
+.footer-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 8px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(0 2px 6px rgba(255, 107, 53, 0.5));
+  animation: gentleFloat 3s ease-in-out infinite;
+
+  // Delay diferente para cada ícone criar efeito alternado
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+}
+
+// Animação de flutuação do troféu com rotação
+@keyframes trophyFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+// Seção hero (topo da página)
+.hero {
+  position: relative;
+  height: 100vh; // Altura total da viewport
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0a1f 0%, #1f1238 50%, #2d1b47 100%);
+}
+
+// Container do vídeo de fundo
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; // Fica atrás do conteúdo
+}
+
+// Vídeo do YouTube posicionado e ajustado
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%); // Centraliza o vídeo
+  opacity: 0.35; // Transparência para não ofuscar o conteúdo
+  pointer-events: none; // Desabilita interação com o vídeo
+
+  // Ajusta vídeo para telas widescreen
+  @media (aspect-ratio > 16/9) {
+    width: 100vw;
+    height: 56.25vw; // Mantém proporção 16:9
+  }
+  // Ajusta vídeo para telas mais altas
+  @media (aspect-ratio <= 16/9) {
+    width: 177.78vh;
+    height: 100vh;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Camada escura sobre o vídeo para melhor legibilidade
+.hero-overlay {
+  position: absolute;
+  inset: 0; // Shorthand para top, right, bottom, left: 0
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(10, 5, 20, 0.7) 70%
+  );
+  z-index: 2;
+}
+
+// Conteúdo principal do hero
+.hero-content {
+  position: relative;
+  z-index: 10; // Fica acima de tudo
+  text-align: center;
+  padding: 0 20px;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// Imagem do título Halloween (PNG do Figma)
+.halloween-title-img {
+  max-width: 500px;
+  width: 90%;
+  height: auto;
+  margin: 0 auto 30px;
+  display: block;
+  animation: gentleFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 24px rgba(255, 107, 53, 0.4));
+}
+
+// Título textual como fallback caso imagem não carregue
+.halloween-title {
+  display: none; // Escondido por padrão
+  font-size: clamp(2.5rem, 6vw, 4.5rem); // Tamanho responsivo
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #ff6b35 0%, #f472b6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+// Subtítulo "Festa de 2025"
+.party-year {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ff6b35 0%, #f472b6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+  filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.3));
+}
+
+// Texto descritivo do hero
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+// Container dos botões do hero
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap; // Quebra linha em telas pequenas
+}
+
+// Estilos base para todos os botões
+.btn {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px; // Botões arredondados
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  background: transparent;
+
+  // Botão primário (laranja)
+  &-primary {
+    background: linear-gradient(135deg, var(--orange) 0%, #ff8352 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+
+    &:hover {
+      transform: translateY(-3px); // Levanta ao passar mouse
+      box-shadow: 0 12px 28px rgba(255, 107, 53, 0.5);
+
+      .btn-icon {
+        transform: scale(1.15) rotate(8deg);
+      }
+    }
+  }
+
+  // Botão secundário (outline)
+  &-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--orange);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+
+    &:hover {
+      background: rgba(255, 107, 53, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+
+      .btn-icon {
+        transform: scale(1.2) rotate(-12deg);
+        filter: drop-shadow(0 6px 14px rgba(255, 107, 53, 1));
+      }
+    }
+  }
+
+  // Botão de submit do formulário (largura total)
+  &-form-submit {
+    width: 100%;
+    margin: 16px auto 0;
+    display: block;
+  }
+}
+
+// Padding padrão para todas as seções de conteúdo
+.details-section,
+.costumes-section,
+.rsvp-section {
+  padding: 80px 24px;
+  position: relative;
+}
+
+// Gradientes de fundo para cada seção
+.details-section {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-purple) 100%);
+}
+
+.costumes-section {
+  background: var(--bg-purple);
+}
+
+.rsvp-section {
+  background: linear-gradient(180deg, var(--bg-purple) 0%, var(--bg-dark) 100%);
+}
+
+// Imagens de título das seções (PNGs do Figma)
+.section-title-img {
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 60px;
+  animation: gentleFloat 5s ease-in-out infinite;
+  filter: drop-shadow(0 6px 16px rgba(255, 107, 53, 0.3));
+}
+
+// Títulos textuais como fallback
+.section-title {
+  display: none; // Só aparece se imagem falhar
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #ff6b35 0%, #f472b6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
+}
+
+// Grid responsivo dos cards de detalhes
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); // Ajusta automaticamente
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// Card individual de detalhes (data, hora, local, etc)
+.detail-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px); // Efeito glassmorphism
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  // Efeito de brilho ao hover
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 107, 53, 0.1) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--orange);
+    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.3);
+
+    &::before {
+      opacity: 1; // Mostra o brilho
+    }
+
+    .detail-icon {
+      transform: scale(1.15) rotate(5deg);
+      filter: drop-shadow(0 12px 32px rgba(255, 107, 53, 0.9));
+    }
+  }
+}
+
+// Label pequeno acima do valor (ex: "DATA", "HORÁRIO")
+.detail-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em; // Espaçamento entre letras
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+// Valor principal do card (ex: "31 de Outubro")
+.detail-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+// Informação extra abaixo do valor (ex: "Quinta-feira")
+.detail-extra {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+// Texto introdutório da seção de fantasias
+.costumes-intro {
+  max-width: 750px;
+  margin: 0 auto 50px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+// Grid das fantasias
+.costumes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+// Card individual de fantasia
+.costume-card {
+  background: rgba(20, 10, 35, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 107, 53, 0.15) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-10px) scale(1.05); // Levanta e aumenta
+    border-color: var(--orange);
+    background: rgba(45, 27, 71, 0.9);
+    box-shadow: 0 16px 36px rgba(255, 107, 53, 0.4);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .costume-image {
+      transform: scale(1.25) rotate(-8deg);
+      filter: drop-shadow(0 12px 36px rgba(255, 107, 53, 0.9));
+    }
+  }
+}
+
+// Container da imagem de fantasia
+.costume-image-wrapper {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Imagem da fantasia
+.costume-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(255, 107, 53, 0.7));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Nome da fantasia
+.costume-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+// Descrição da fantasia
+.costume-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+// Banner do concurso de fantasias
+.contest-banner {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.15),
+    rgba(168, 85, 247, 0.15)
+  );
+  backdrop-filter: blur(12px);
+  border: 2px solid var(--orange);
+  border-radius: 24px;
+  padding: 44px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Brilho rotativo de fundo
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 193, 7, 0.1) 0%,
+      transparent 70%
+    );
+    animation: rotate 10s linear infinite;
+  }
+}
+
+// Título do concurso
+.contest-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--yellow);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1; // Fica acima do brilho rotativo
+  text-shadow: 0 4px 16px rgba(255, 193, 7, 0.5);
+}
+
+// Descrição do concurso
+.contest-desc {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 1;
+}
+
+.contest-banner .btn {
+  position: relative;
+  z-index: 1;
+}
+
+// Container do formulário RSVP
+.rsvp-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 50px 44px;
+  border: 1px solid var(--border-color);
+}
+
+// Texto introdutório do formulário
+.rsvp-intro {
+  text-align: center;
+  margin-bottom: 36px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+// Grupo de cada campo do formulário
+.form-group {
+  margin-bottom: 24px;
+}
+
+// Label dos campos do formulário
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+// Estilos compartilhados para inputs, selects e textareas
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(15, 10, 30, 0.6);
+  border: 2px solid rgba(255, 107, 53, 0.25);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: rgba(15, 10, 30, 0.8);
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15); // Glow ao focar
+  }
+
+  &::placeholder {
+    color: rgba(184, 184, 184, 0.5);
+  }
+}
+
+// Customização do select
+.form-select {
+  appearance: none; // Remove estilo nativo
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px;
+  padding-right: 42px;
+  cursor: pointer;
+
+  option {
+    background: var(--bg-purple);
+    color: white;
+    padding: 12px;
+  }
+}
+
+// Textarea com altura mínima
+.form-textarea {
+  resize: vertical; // Permite redimensionar apenas verticalmente
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+// Rodapé do formulário
+.form-footer {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+// Footer da página
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  background: rgba(10, 5, 20, 0.5);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 107, 53, 0.15);
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+// Animação de flutuação suave
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Animação de flutuação com movimento lateral
+@keyframes subtleFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(10px, -10px);
+  }
+  66% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+// Animação de pulsação
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+// Animação de rotação contínua
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Classe para revelar elementos ao scroll
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Ajustes para tablets e telas médias (até 768px)
+@media (max-width: 768px) {
+  .hero {
+    min-height: 550px;
+  }
+
+  .halloween-title-img {
+    max-width: 85%;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+
+    &-icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  .details-section,
+  .costumes-section,
+  .rsvp-section {
+    padding: 60px 16px;
+  }
+
+  .section-title-img {
+    max-width: 90%;
+    margin-bottom: 40px;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr); // 2 colunas em tablets
+    gap: 14px;
+  }
+
+  .detail-card {
+    padding: 24px 16px;
+  }
+
+  .detail-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 14px;
+  }
+
+  .detail-icon-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .costumes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .costume-image-wrapper {
+    width: 110px;
+    height: 110px;
+  }
+
+  .rsvp-container {
+    padding: 40px 28px;
+  }
+
+  .contest-banner {
+    padding: 36px 26px;
+  }
+
+  .contest-title {
+    font-size: 1.7rem;
+  }
+
+  .trophy-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Ajustes para smartphones (até 480px)
+@media (max-width: 480px) {
+  .party-year {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr; // 1 coluna em mobile
+    gap: 12px;
+  }
+
+  .detail-card {
+    padding: 20px 14px;
+  }
+
+  .detail-icon {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 12px;
+  }
+
+  .detail-icon-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .form-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .costume-image-wrapper {
+    width: 95px;
+    height: 95px;
+  }
+
+  .costumes-grid {
+    grid-template-columns: 1fr; // Uma coluna por vez em mobile
+  }
+
+  .contest-title {
+    flex-direction: column; // Empilha troféu e texto verticalmente
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+
+  .trophy-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .rsvp-container {
+    padding: 32px 22px;
+  }
+}

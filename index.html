@@ -1,0 +1,234 @@
+<!DOCTYPE html> <!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma da página -->
+<head>
+    <meta charset="UTF-8"> <!-- Define o padrão de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna o site responsivo -->
+    <meta name="description" content="Halloween Party 2025 - A festa mais assombrada do ano!"> <!-- Descrição para SEO -->
+    <title>Halloween Party 2025 🎃</title> <!-- Título da aba -->
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Importa o arquivo CSS -->
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero"> <!-- Seção inicial com vídeo e título -->
+        <!-- Vídeo do YouTube como background -->
+        <div class="hero-video-container">
+            <div id="hero-video" class="hero-video"></div> <!-- Onde o vídeo será inserido via JS -->
+        </div>
+
+        <div class="hero-overlay"></div> <!-- Camada de sombra sobre o vídeo -->
+        
+        <div class="hero-content"> <!-- Conteúdo principal do topo -->
+            <!-- Título principal - usar PNG do Figma -->
+            <img src="./images/halloween.png" alt="Halloween" class="halloween-title-img" onerror="this.style.display='none'; document.querySelector('.halloween-title').style.display='block';">
+            <h1 class="halloween-title">HALLOWEEN</h1> <!-- Texto alternativo caso a imagem falhe -->
+            
+            <h2 class="party-year">Festa de 2025</h2>
+            <p class="hero-subtitle">Prepare-se para a noite mais assombrada do ano!</p>
+            
+            <div class="hero-buttons"> <!-- Botões de navegação principal -->
+                <a href="#rsvp" class="btn btn-primary">
+                    <img src="./images/calendar.png" alt="" class="btn-icon">
+                    Confirmar Presença
+                </a>
+                <a href="#details" class="btn btn-secondary">
+                    <img src="./images/icon-ghost.png" alt="" class="btn-icon">
+                    Ver Detalhes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS SECTION -->
+    <section id="details" class="details-section"> <!-- Seção com informações do evento -->
+        <img src="./images/detalhesDoEvento.png" alt="Detalhes do Evento" class="section-title-img scroll-reveal" onerror="this.style.display='none'; document.querySelector('.details-section .section-title').style.display='block';">
+        <h2 class="section-title">DETALHES DO EVENTO</h2>
+        
+        <div class="details-grid"> <!-- Grade com os cartões de detalhes -->
+            <div class="detail-card scroll-reveal">
+                <div class="detail-icon">
+                    <img src="./images/icon-calendar.png" alt="" class="detail-icon-img">
+                </div>
+                <div class="detail-label">DATA</div>
+                <div class="detail-value">31 de Outubro</div>
+                <div class="detail-extra">Quinta-feira</div>
+            </div>
+            
+            <div class="detail-card scroll-reveal"> <!-- Cartão com horário -->
+                <div class="detail-icon">
+                    <img src="./images/icon-clock.png" alt="" class="detail-icon-img">
+                </div>
+                <div class="detail-label">HORÁRIO</div>
+                <div class="detail-value">20:00 - 02:00</div>
+                <div class="detail-extra">6 horas de terror</div>
+            </div>
+            
+            <div class="detail-card scroll-reveal"> <!-- Cartão com local -->
+                <div class="detail-icon">
+                    <img src="./images/icon-location.png" alt="" class="detail-icon-img">
+                </div>
+                <div class="detail-label">LOCAL</div>
+                <div class="detail-value">Clube Assombrado</div>
+                <div class="detail-extra">Rua das Bruxas, 13</div>
+            </div>
+            
+            <div class="detail-card scroll-reveal"> <!-- Cartão com dress code -->
+                <div class="detail-icon">
+                    <img src="./images/icon-costume.png" alt="" class="detail-icon-img">
+                </div>
+                <div class="detail-label">Dress Code</div>
+                <div class="detail-value">Fantasias</div>
+                <div class="detail-extra">Obrigatório!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COSTUMES SECTION -->
+    <section class="costumes-section"> <!-- Seção com ideias de fantasias -->
+        <img src="./images/inspiracoesFantasias.png" alt="Inspirações de Fantasias" class="section-title-img scroll-reveal" onerror="this.style.display='none'; document.querySelector('.costumes-section .section-title').style.display='block';">
+        <h2 class="section-title">INSPIRAÇÕES DE FANTASIAS</h2>
+        
+        <p class="costumes-intro scroll-reveal">
+            Solte sua criatividade e venha caracterizado(a)! Aqui estão algumas ideias para você se inspirar:
+        </p>
+        
+        <div class="costumes-grid"> <!-- Grade com cartões de fantasia -->
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/vampiro.png" alt="Vampiro" class="costume-image">
+                </div>
+                <div class="costume-name">Vampiro</div>
+                <div class="costume-desc">Clássico e elegante</div>
+            </div>
+            
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/bruxa.png" alt="Bruxa" class="costume-image">
+                </div>
+                <div class="costume-name">Bruxa</div>
+                <div class="costume-desc">Misterioso e poderoso</div>
+            </div>
+            
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/fantasma.png" alt="Fantasma" class="costume-image">
+                </div>
+                <div class="costume-name">Fantasma</div>
+                <div class="costume-desc">Assustador e simples</div>
+            </div>
+            
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/zumbi.png" alt="Zumbi" class="costume-image">
+                </div>
+                <div class="costume-name">Zumbi</div>
+                <div class="costume-desc">Morto-vivo faminto</div>
+            </div>
+            
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/palhaco.png" alt="Palhaço" class="costume-image">
+                </div>
+                <div class="costume-name">Palhaço</div>
+                <div class="costume-desc">Terrível e divertido</div>
+            </div>
+            
+            <div class="costume-card scroll-reveal">
+                <div class="costume-image-wrapper">
+                    <img src="./images/lobisomem.png" alt="Lobisomem" class="costume-image">
+                </div>
+                <div class="costume-name">Lobisomem</div>
+                <div class="costume-desc">Selvagem e feroz</div>
+            </div>
+        </div>
+
+        <div class="contest-banner scroll-reveal"> <!-- Banner do concurso -->
+            <h3 class="contest-title">
+                <img src="./images/icon-trophy.png" alt="" class="trophy-icon">
+                Concurso de Fantasias!
+            </h3>
+            <p class="contest-desc">Melhor fantasia ganha um prêmio especial! Prepare-se para competir.</p>
+            <button class="btn btn-primary">Enviar Fantasia</button>
+        </div>
+    </section>
+
+    <!-- RSVP SECTION -->
+    <section id="rsvp" class="rsvp-section"> <!-- Seção do formulário de confirmação -->
+        <img src="./images/confirmeSuaPresenca.png" alt="Confirme Sua Presença" class="section-title-img scroll-reveal" onerror="this.style.display='none'; document.querySelector('.rsvp-section .section-title').style.display='block';">
+        <h2 class="section-title">CONFIRME SUA PRESENÇA</h2>
+        
+        <div class="rsvp-container scroll-reveal">
+            <p class="rsvp-intro">
+                Não perca a festa mais assustadora do ano! Confirme já sua presença preenchendo o formulário abaixo.
+            </p>
+            
+            <form id="rsvpForm"> <!-- Formulário principal -->
+                <div class="form-group"> <!-- Campo de nome -->
+                    <label class="form-label">
+                        <img src="./images/icon-user.png" alt="" class="form-icon">
+                        Nome Completo
+                    </label>
+                    <input type="text" class="form-input" placeholder="Seu nome assombrado..." required>
+                </div>
+                
+                <div class="form-group"> <!-- Campo de e-mail -->
+                    <label class="form-label">
+                        <img src="./images/icon-email.png" alt="" class="form-icon">
+                        E-mail
+                    </label>
+                    <input type="email" class="form-input" placeholder="seu@email.com" required>
+                </div>
+                
+                <div class="form-group"> <!-- Seleção de número de convidados -->
+                    <label class="form-label">
+                        <img src="./images/icon-users.png" alt="" class="form-icon">
+                        Número de Convidados
+                    </label>
+                    <select class="form-select" required>
+                        <option value="">Escolha...</option>
+                        <option value="1">1 pessoa</option>
+                        <option value="2">2 pessoas</option>
+                        <option value="3">3 pessoas</option>
+                        <option value="4">4 pessoas</option>
+                        <option value="5">5 ou mais pessoas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group"> <!-- Campo de fantasia -->
+                    <label class="form-label">
+                        <img src="./images/icon-mask.png" alt="" class="form-icon">
+                        Sua Fantasia
+                    </label>
+                    <input type="text" class="form-input" placeholder="Vampiro, Bruxa, Zumbi...">
+                </div>
+                
+                <div class="form-group"> <!-- Campo de mensagem opcional -->
+                    <label class="form-label">
+                        <img src="./images/icon-message.png" alt="" class="form-icon">
+                        Mensagem (Opcional)
+                    </label>
+                    <textarea class="form-textarea" placeholder="Alguma pergunta ou comentário?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-form-submit">
+                    Confirmar presença!
+                </button>
+            </form>
+            
+            <div class="form-footer"> <!-- Texto abaixo do formulário -->
+                Dúvidas? Entre em contato.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer"> <!-- Rodapé da página -->
+        <p>
+            <img src="./images/calendar.png" alt="" class="footer-icon">
+            Halloween Party 2025 - Prepare-se para o terror!
+            <img src="./images/icon-ghost.png" alt="" class="footer-icon">
+        </p>
+    </footer>
+
+    <script src="./js/script.js"></script> <!-- Importa o JavaScript -->
+</body>
+</html>
